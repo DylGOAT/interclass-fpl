@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interclass FPL 2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Interclass FPL 2026</h1>
+<div id="login">
+<input id="manager" placeholder="Name/Class">
+<button onclick="login()">Start</button>
+</div>
+<div id="team" style="display:none;">
+<h2>Budget: <span id="budget">30</span>m | Points: <span id="points">0</span></h2>
+<select id="pos" onchange="loadPlayers()">
+<option>GK</option><option>DF</option><option>MF</option><option>FW</option>
+</select>
+<div id="players"></div>
+<h3>Your Team (1GK-2DF-1MF-1FW):</h3>
+<div id="myteam"></div>
+<button onclick="saveTeam()">Save Squad</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
