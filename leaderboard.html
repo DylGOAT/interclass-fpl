@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FPL Leaderboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Interclass FPL Leaderboard</h1>
+<input id="manager" placeholder="Your Name">
+<button onclick="loadLeaderboard()">Refresh</button>
+<div id="standings"></div>
+<script src="script.js"></script>
+<script>
+loadLeaderboard();
+function loadLeaderboard() {
+  const teams = JSON.parse(localStorage.getItem('fplTeam') || '{}');
+  const manager = document.getElementById('manager').value || 'All';
+  
+  // Calculate points from your Google Sheet (manual update)
+  document.getElementById('standings').innerHTML = `
+    <h3>Top Teams (Update points in Sheet)</h3>
+    <table border="1" style="width:100%">
+      <tr><th>Manager</th><th>Team</th><th>Points</th></tr>
+      <tr><td>${manager || 'Demo'}</td><td>${Object.values(teams).flat().map(p=>p.name).join(', ') || 'No team'}</td><td>45</td></tr>
+    </table>`;
+}
+</script>
+</body>
+</html>
